@@ -1,0 +1,41 @@
+(3, 6, 0.011)
+Accuracy: 0.672
+True Positive Rate: 0.39925
+False Positive Rate: 0.05525
+F1 Score: 0.5489859058095565
+
+(4, 6, 0.0115)
+Accuracy: 0.684
+True Positive Rate: 0.42675
+False Positive Rate: 0.05875
+F1 Score: 0.5745540222147425
+
+(5, 6, 0.02)
+Accuracy: 0.678
+True Positive Rate: 0.396
+False Positive Rate: 0.04
+F1 Score: 0.5515320334261838
+
+(6, 6, 0.0215)
+Accuracy: 0.943875
+True Positive Rate: 0.936
+False Positive Rate: 0.04825
+F1 Score: 0.943429507370543
+
+(7, 6, 0.025)
+Accuracy: 0.944625
+True Positive Rate: 0.9315
+False Positive Rate: 0.04225
+F1 Score: 0.9438885370487651
+
+(8, 6, 0.025)
+Accuracy: 0.943875
+True Positive Rate: 0.9405
+False Positive Rate: 0.05275
+F1 Score: 0.9436849366612317
+
+(9, 6, 0.03)
+Accuracy: 0.945125
+True Positive Rate: 0.9385
+False Positive Rate: 0.04825
+F1 Score: 0.9447590285642381

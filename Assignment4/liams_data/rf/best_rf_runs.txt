@@ -1,0 +1,160 @@
+C:\Users\bacon\AppData\Local\Programs\Python\Python39\python.exe C:/Users/bacon/Documents/csec620_Cyberanalytics_ML/CSEC-620ML/Assignment4/classify.py -r ./iot_data/
+Loading dataset ...
+100%|██████████| 7442/7442 [00:01<00:00, 4918.74it/s]
+Generating wordbags ...
+100%|██████████| 7426/7426 [00:20<00:00, 355.87it/s]
+Encoding labels ...
+Dataset statistics:
+	 Classes: 24
+	 Samples: 7426
+	 Dimensions:  (7426, 6) (7426, 3961) (7426, 2656) (7426, 64)
+Shuffling dataset using seed 0 ...
+Splitting dataset using train:test ratio of 7:3 ...
+Performing Stage 0 classification ...
+Performing Stage 1 classification ...
+Trail: (20, 0.3, 5)
+Correct: 4493
+Wrong: 705
+Accuracy: 0.8643709118891881     4
+Trail: (20, 0.3, 7)
+Correct: 5056
+Wrong: 142
+Accuracy: 0.972681800692574      2
+Trail: (20, 0.3, 10)
+Correct: 4908
+Wrong: 290
+Accuracy: 0.9442093112735668     3
+Trail: (20, 0.3, 12)
+Correct: 5067
+Wrong: 131
+Accuracy: 0.9747979992304733     1
+Trail: (20, 0.5, 5)
+Correct: 4528
+Wrong: 670
+Accuracy: 0.8711042708734128     4
+Trail: (20, 0.5, 7)
+Correct: 5060
+Wrong: 138
+Accuracy: 0.9734513274336283     3
+Trail: (20, 0.5, 10)
+Correct: 5115
+Wrong: 83
+Accuracy: 0.9840323201231242     1
+Trail: (20, 0.5, 12)
+Correct: 5062
+Wrong: 136
+Accuracy: 0.9738360908041555     2
+Trail: (20, 0.7, 5)
+Correct: 4464
+Wrong: 734
+Accuracy: 0.8587918430165449     4
+Trail: (20, 0.7, 7)
+Correct: 5046
+Wrong: 152
+Accuracy: 0.9707579838399384     3
+Trail: (20, 0.7, 10)
+Correct: 5075
+Wrong: 123
+Accuracy: 0.9763370527125818     2
+Trail: (20, 0.7, 12)
+Correct: 5099
+Wrong: 99
+Accuracy: 0.9809542131589073     1
+Trail: (70, 0.3, 5)
+Correct: 4500
+Wrong: 698
+Accuracy: 0.8657175836860331     4
+Trail: (70, 0.3, 7)
+Correct: 5054
+Wrong: 144
+Accuracy: 0.972297037322047      3
+Trail: (70, 0.3, 10)
+Correct: 5085
+Wrong: 113
+Accuracy: 0.9782608695652174     1
+Trail: (70, 0.3, 12)
+Correct: 5082
+Wrong: 116
+Accuracy: 0.9776837245094268     2
+Trail: (70, 0.5, 5)
+Correct: 4533
+Wrong: 665
+Accuracy: 0.8720661792997306     4
+Trail: (70, 0.5, 7)
+Correct: 5076
+Wrong: 122
+Accuracy: 0.9765294343978453     3
+Trail: (70, 0.5, 10)
+Correct: 5085
+Wrong: 113
+Accuracy: 0.9782608695652174     2
+Trail: (70, 0.5, 12)
+Correct: 5086
+Wrong: 112
+Accuracy: 0.978453251250481      1
+Trail: (70, 0.7, 5)
+Correct: 4517
+Wrong: 681
+Accuracy: 0.8689880723355137     4
+Trail: (70, 0.7, 7)
+Correct: 5078
+Wrong: 120
+Accuracy: 0.9769141977683724     3
+Trail: (70, 0.7, 10)
+Correct: 5087
+Wrong: 111
+Accuracy: 0.9786456329357445     2
+Trail: (70, 0.7, 12)
+Correct: 5089
+Wrong: 109
+Accuracy: 0.9790303963062716     1
+Trail: (100, 0.3, 5)
+Correct: 4526
+Wrong: 672
+Accuracy: 0.8707195075028857     4
+Trail: (100, 0.3, 7)
+Correct: 5070
+Wrong: 128
+Accuracy: 0.9753751442862639     3
+Trail: (100, 0.3, 10)
+Correct: 5083
+Wrong: 115
+Accuracy: 0.9778761061946902     2
+Trail: (100, 0.3, 12)
+Correct: 5091
+Wrong: 107
+Accuracy: 0.9794151596767988     1
+Trail: (100, 0.5, 5)
+Correct: 4531
+Wrong: 667
+Accuracy: 0.8716814159292036     3
+Trail: (100, 0.5, 7)
+Correct: 5076
+Wrong: 122
+Accuracy: 0.9765294343978453     2
+Trail: (100, 0.5, 10)
+Correct: 5082
+Wrong: 116
+Accuracy: 0.9776837245094268     1
+Trail: (100, 0.5, 12)
+Correct: 5082
+Wrong: 116
+Accuracy: 0.9776837245094268     1
+Trail: (100, 0.7, 5)
+Correct: 4517
+Wrong: 681
+Accuracy: 0.8689880723355137     4
+Trail: (100, 0.7, 7)
+Correct: 5075
+Wrong: 123
+Accuracy: 0.9763370527125818     2
+Trail: (100, 0.7, 10)
+Correct: 5092
+Wrong: 106
+Accuracy: 0.9796075413620623     1
+Trail: (100, 0.7, 12)
+Correct: 5070
+Wrong: 128
+Accuracy: 0.9753751442862639     3
+
+Process finished with exit code 0

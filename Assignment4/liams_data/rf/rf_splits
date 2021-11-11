@@ -1,0 +1,174 @@
+100
+
+C:\Users\bacon\AppData\Local\Programs\Python\Python39\python.exe C:/Users/bacon/Documents/csec620_Cyberanalytics_ML/CSEC-620ML/Assignment4/classify.py -r ./iot_data/
+Loading dataset ...
+ 98%|█████████▊| 7283/7442 [00:01<00:00, 6560.53it/s]Generating wordbags ...
+100%|██████████| 7442/7442 [00:01<00:00, 6500.27it/s]
+100%|██████████| 7426/7426 [00:22<00:00, 326.21it/s]
+Encoding labels ...
+Dataset statistics:
+	 Classes: 24
+	 Samples: 7426
+	 Dimensions:  (7426, 6) (7426, 3961) (7426, 2656) (7426, 64)
+Shuffling dataset using seed 0 ...
+Splitting dataset using train:test ratio of 7:3 ...
+Performing Stage 0 classification ...
+Performing Stage 1 classification ...
+split: 0.1
+Correct: 4485
+Wrong: 713
+Accuracy: 0.8628318584070797
+split: 0.2
+Correct: 4632
+Wrong: 566
+Accuracy: 0.8911119661408234
+split: 0.30000000000000004
+Correct: 4670
+Wrong: 528
+Accuracy: 0.8984224701808388
+split: 0.4
+Correct: 4638
+Wrong: 560
+Accuracy: 0.8922662562524047
+split: 0.5
+Correct: 4688
+Wrong: 510
+Accuracy: 0.9018853405155829
+split: 0.6000000000000001
+Correct: 4665
+Wrong: 533
+Accuracy: 0.8974605617545209
+split: 0.7000000000000001
+Correct: 4697
+Wrong: 501
+Accuracy: 0.903616775682955
+split: 0.8
+Correct: 4669
+Wrong: 529
+Accuracy: 0.8982300884955752
+split: 0.9
+Correct: 4541
+Wrong: 657
+Accuracy: 0.8736052327818392
+split: 1.0
+Correct: 4682
+Wrong: 516
+Accuracy: 0.9007310504040016
+
+Process finished with exit code 0
+ 50
+
+ C:\Users\bacon\AppData\Local\Programs\Python\Python39\python.exe C:/Users/bacon/Documents/csec620_Cyberanalytics_ML/CSEC-620ML/Assignment4/classify.py -r ./iot_data/
+Loading dataset ...
+ 99%|█████████▊| 7333/7442 [00:01<00:00, 6625.56it/s]Generating wordbags ...
+100%|██████████| 7442/7442 [00:01<00:00, 6527.99it/s]
+100%|██████████| 7426/7426 [00:21<00:00, 337.64it/s]
+Encoding labels ...
+Dataset statistics:
+	 Classes: 24
+	 Samples: 7426
+	 Dimensions:  (7426, 6) (7426, 3961) (7426, 2656) (7426, 64)
+Shuffling dataset using seed 0 ...
+Splitting dataset using train:test ratio of 7:3 ...
+Performing Stage 0 classification ...
+Performing Stage 1 classification ...
+split: 0.1
+Correct: 4480
+Wrong: 718
+Accuracy: 0.8618699499807618
+split: 0.2
+Correct: 4482
+Wrong: 716
+Accuracy: 0.862254713351289
+split: 0.30000000000000004
+Correct: 4613
+Wrong: 585
+Accuracy: 0.8874567141208157
+split: 0.4
+Correct: 4429
+Wrong: 769
+Accuracy: 0.8520584840323201
+split: 0.5
+Correct: 4685
+Wrong: 513
+Accuracy: 0.9013081954597922
+split: 0.6000000000000001
+Correct: 4577
+Wrong: 621
+Accuracy: 0.8805309734513275
+split: 0.7000000000000001
+Correct: 4437
+Wrong: 761
+Accuracy: 0.8535975375144286
+split: 0.8
+Correct: 4697
+Wrong: 501
+Accuracy: 0.903616775682955
+split: 0.9
+Correct: 4672
+Wrong: 526
+Accuracy: 0.8988072335513659
+split: 1.0
+Correct: 4559
+Wrong: 639
+Accuracy: 0.8770681031165833
+
+Process finished with exit code 0
+
+20
+C:\Users\bacon\AppData\Local\Programs\Python\Python39\python.exe C:/Users/bacon/Documents/csec620_Cyberanalytics_ML/CSEC-620ML/Assignment4/classify.py -r ./iot_data/
+Loading dataset ...
+100%|██████████| 7442/7442 [00:01<00:00, 6662.51it/s]
+Generating wordbags ...
+100%|██████████| 7426/7426 [00:22<00:00, 332.77it/s]
+Encoding labels ...
+Dataset statistics:
+	 Classes: 24
+	 Samples: 7426
+	 Dimensions:  (7426, 6) (7426, 3961) (7426, 2656) (7426, 64)
+Shuffling dataset using seed 0 ...
+Splitting dataset using train:test ratio of 7:3 ...
+Performing Stage 0 classification ...
+Performing Stage 1 classification ...
+split: 0.1
+Correct: 4558
+Wrong: 640
+Accuracy: 0.8768757214313198
+split: 0.2
+Correct: 4589
+Wrong: 609
+Accuracy: 0.8828395536744902
+split: 0.30000000000000004
+Correct: 4577
+Wrong: 621
+Accuracy: 0.8805309734513275
+split: 0.4
+Correct: 4649
+Wrong: 549
+Accuracy: 0.894382454790304
+split: 0.5
+Correct: 4690
+Wrong: 508
+Accuracy: 0.9022701038861101
+split: 0.6000000000000001
+Correct: 4601
+Wrong: 597
+Accuracy: 0.8851481338976529
+split: 0.7000000000000001
+Correct: 4657
+Wrong: 541
+Accuracy: 0.8959215082724125
+split: 0.8
+Correct: 4594
+Wrong: 604
+Accuracy: 0.883801462100808
+split: 0.9
+Correct: 3993
+Wrong: 1205
+Accuracy: 0.7681800692574067
+split: 1.0
+Correct: 4176
+Wrong: 1022
+Accuracy: 0.8033859176606387
+
+Process finished with exit code 0
