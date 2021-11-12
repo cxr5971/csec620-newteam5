@@ -6,16 +6,10 @@ Introduction:
 
 Required Modules:
 
-    While we did not use any external libraries in our model, the provided classify.py does require a few different
-    libraries. Classify.py relies heavily on the sklearn module. If you do not already have sklearn installed you can
-    install it by running:
+    Our implementation of the decision tree and Random Forest do not use any external libraries. However classify.py
+    does have some requirements. These requirements can be seen in requirements.txt and can be installed by running:
 
-        pip3 install sklearn
-
-    Along with sklearn, running the above command should also install numpy as a dependency. However if numpy fails to
-    install with sklearn you can manually install numpy using:
-
-        pip3 install numpy
+        pip3 install -r {Path to}/requirements.txt
 
 Usage:
 
