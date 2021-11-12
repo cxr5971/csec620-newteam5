@@ -1,0 +1,137 @@
+C:\Users\bacon\AppData\Local\Programs\Python\Python39\python.exe C:/Users/bacon/Documents/csec620_Cyberanalytics_ML/CSEC-620ML/Assignment4/classify.py -r ./iot_data/
+Loading dataset ...
+100%|██████████| 7442/7442 [00:01<00:00, 6586.03it/s]
+  0%|          | 0/7426 [00:00<?, ?it/s]Generating wordbags ...
+100%|██████████| 7426/7426 [00:20<00:00, 355.51it/s]
+Encoding labels ...
+Dataset statistics:
+	 Classes: 24
+	 Samples: 7426
+	 Dimensions:  (7426, 6) (7426, 3961) (7426, 2656) (7426, 64)
+Shuffling dataset using seed 0 ...
+Splitting dataset using train:test ratio of 7:3 ...
+Performing Stage 0 classification ...
+Performing Stage 1 classification ...
+Testing with a max_depth of 1
+time to build tree: 7.500195264816284
+correct: 1231
+wrong: 3967
+accuracy: 0.23682185455944593
+
+Testing with a max_depth of 2
+time to build tree: 9.627995491027832
+correct: 1564
+wrong: 3634
+accuracy: 0.3008849557522124
+
+Testing with a max_depth of 3
+time to build tree: 11.674036026000977
+correct: 1890
+wrong: 3308
+accuracy: 0.3636013851481339
+
+Testing with a max_depth of 4
+time to build tree: 12.201897144317627
+correct: 2559
+wrong: 2639
+accuracy: 0.4923047325894575
+
+Testing with a max_depth of 5
+time to build tree: 13.32558822631836
+correct: 3190
+wrong: 2008
+accuracy: 0.6136975759907657
+
+Testing with a max_depth of 6
+time to build tree: 13.322966575622559
+correct: 3544
+wrong: 1654
+accuracy: 0.681800692574067
+
+Testing with a max_depth of 7
+time to build tree: 14.454984188079834
+correct: 4148
+wrong: 1050
+accuracy: 0.7979992304732589
+
+Testing with a max_depth of 8
+time to build tree: 14.231308221817017
+correct: 4470
+wrong: 728
+accuracy: 0.8599461331281262
+
+Testing with a max_depth of 9
+time to build tree: 13.807618618011475
+correct: 4722
+wrong: 476
+accuracy: 0.9084263178145441
+
+Testing with a max_depth of 10
+time to build tree: 14.2149977684021
+correct: 4825
+wrong: 373
+accuracy: 0.928241631396691
+
+Testing with a max_depth of 11
+time to build tree: 13.711861371994019
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 12
+time to build tree: 13.82186770439148
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 13
+time to build tree: 13.52351188659668
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 14
+time to build tree: 13.60000991821289
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 15
+time to build tree: 13.50699758529663
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 16
+time to build tree: 13.943026781082153
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 17
+time to build tree: 14.205200433731079
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 18
+time to build tree: 14.022998809814453
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 19
+time to build tree: 14.955855131149292
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 20
+time to build tree: 14.00169587135315
+correct: 4881
+wrong: 317
+accuracy: 0.9390150057714506
+
+Testing with a max_depth of 21
+
+Process finished with exit code -1
