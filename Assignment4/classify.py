@@ -46,7 +46,7 @@ def parse_args():
                         help="The type of classifier to use")
     parser.add_argument('-t', '--trees', type=int, default=100, help="The number of trees to use")
     parser.add_argument('-x', '--data_split', type=float, default=.5, help="The fraction of data to use per tree")
-    parser.add_argument('-f', '--features', type=int, default=7, help="The number of featuers to check per node")
+    parser.add_argument('-f', '--features', type=int, default=7, help="The number of features to check per node")
     parser.add_argument('-d', '--depth', type=int, default=13, help="The maximum depth for any tree branch")
     parser.add_argument('-m', '--min_nodes', type=int, default=5, help="The minimum number of samples to use per node")
 
@@ -317,8 +317,8 @@ def main(args):
         print('Training complete\nPredicting samples')
         pred,acc = dt_accuracy(dt_tree, X_ts_full, Y_ts)
     else:
-        print(f"Running random forest classifier\nTraining forest of {args.trees} trees using a {args.data_split} split "
-              f"of the data per tree and a subset of {args.features} for each split")
+        print(f"Running random forest classifier\nTraining forest of {args.trees} trees using a {args.data_split}"
+              f" split of the data per tree and a subset of {args.features} for each split")
         forest = random_forest_training(args.trees, args.data_split, args.features, args.depth, args.min_nodes,
                                         X_tr_full, Y_tr)
         print('Training complete\nPredicting samples')
