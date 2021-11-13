@@ -53,6 +53,18 @@ def decision_tree_training(max_depth, min_samples, x_features, x_labels, feature
 
 
 def random_forest_training(n_trees, data_frac, feature_subset, max_depth, min_samples, samples, labels):
+    """
+    This method trains the random forest given a number of decision trees and how many features you want to use. This function calls the decision tree training function to create each tree and returns the list of trees. This will be used in the rf_accuracy function to make predictions and evaluate reuslts of classification
+    :n_trees: int: The number of decision trees to create
+    :data_frac: float: The percentage of dataset to use for training
+    :feature_subset: int: The number of features to use for training
+    :param max_depth: int: The max depth any branch in the tree can reach
+    :param min_samples: int: The minimum number of samples a node must have to split again
+    :param samples: numpy.ndarray: The training samples
+    :param labels: numpy.ndarry: The training labels
+    :return: The list of decision trees
+    """
+
     trees = []
     for i in range(0, n_trees):
         data_subset = []
@@ -310,11 +322,20 @@ def dt_accuracy(tree, test_set, test_labels):
         all_predictions.append(prediction)
     print(f"correct: {correct}")
     print(f"wrong: {wrong}")
+    acc = (correct/(correct+wrong))
     print(f"accuracy: {correct/ (correct+wrong)}")
-    return all_predictions
+    return all_predictions,acc
 
 
 def rf_accuracy(trees, samples, labels):
+    """
+    This function loops over all the test data and predicts their classes. The function then counts the number of
+    correct and incorrect predictions and reports the accuracy of the model 
+    :param trees: list: This list contains the decision trees in the forest to use for testing
+    :param samples: numpy.ndarray: The test samples
+    :param labels: numpy.ndarray: The labels of the test data
+    :return: Returns the final predictions dictionary as well as the accuracy from testing
+    """
     sample_predictions = {}
     for tree in trees:
         sample_index = 0
@@ -340,8 +361,9 @@ def rf_accuracy(trees, samples, labels):
 
     print("Correct: " + str(correct))
     print("Wrong: " + str(wrong))
+    accuracy = (correct/(correct+wrong))
     print("Accuracy: " + str(correct / (correct + wrong)))
-    return final_predictions
+    return final_predictions, accuracy
 
 
 def make_confusion_matrix(predictions, labels, classes, count=""):

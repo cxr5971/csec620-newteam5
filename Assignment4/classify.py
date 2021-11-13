@@ -5,6 +5,8 @@ import argparse
 import os
 import numpy as np
 import tqdm
+import time
+import csv
 
 # Supress sklearn warnings
 def warn(*args, **kwargs):
@@ -313,23 +315,52 @@ def main(args):
               f"of {args.depth} and min samples of {args.min_nodes}")
         dt_tree = decision_tree_training(args.depth, args.min_nodes, X_tr_full, Y_tr)
         print('Training complete\nPredicting samples')
-        pred = dt_accuracy(dt_tree, X_ts_full, Y_ts)
+        pred,acc = dt_accuracy(dt_tree, X_ts_full, Y_ts)
     else:
         print(f"Running random forest classifier\nTraining forest of {args.trees} trees using a {args.data_split} split "
               f"of the data per tree and a subset of {args.features} for each split")
         forest = random_forest_training(args.trees, args.data_split, args.features, args.depth, args.min_nodes,
                                         X_tr_full, Y_tr)
         print('Training complete\nPredicting samples')
-        pred = rf_accuracy(forest, X_ts_full, Y_ts)
+        pred, acc = rf_accuracy(forest, X_ts_full, Y_ts)
 
     print("Prediction complete\nBuilding confusion matrix")
     make_confusion_matrix(pred, Y_ts, le.classes_)
     print("Matrix built\n\nBuilding classification report")
     # print classification report
     print(classification_report(Y_ts, pred, target_names=le.classes_))
+    return acc 
+
+class Namespace:
+    def __init__(self, **kwargs):
+        self.__dict__.update(kwargs)
 
 
 if __name__ == "__main__":
     # parse cmdline args
+    
     args = parse_args()
     main(args)
+
+
+    #The following code was used to test execution times, we can remove this before submission
+    #feature_set = [5, 9, 12]
+    #data_split_set = [.3, .5, .7]
+    #tree_num_set = [20, 50, 100]
+    #depth_set = [7,8,9,10,11]
+    #min_node_set = [5, 20, 50, 100, 250, 500, 1000]
+    #for feature in feature_set:
+    #    for data_split_val in data_split_set:
+    #        for tree in tree_num_set:
+    #for depth_data in depth_set:
+    #    for min_node_data in min_node_set:
+    #        args = Namespace(classifier="tree", trees=100, split=0.3, data_split=.5, features=7, depth=depth_data, min_nodes=min_node_data,root='./iot_data/')
+    #        start_time = time.time()
+    #        acc = main(args)
+    #        end_time = time.time()
+    #        total_time = end_time-start_time
+    #        print(str(end_time-start_time) + " seconds to complete")
+    #        fields = [args.trees,args.data_split,args.features,args.depth,args.min_nodes,total_time,acc]
+    #        with open(r'tree_times.csv', 'a') as f:
+    #            writer = csv.writer(f)
+    #            writer.writerow(fields)
