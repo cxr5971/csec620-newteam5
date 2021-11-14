@@ -306,7 +306,7 @@ def dt_accuracy(tree, test_set, test_labels):
     :param tree: SplitNode: The root node of the decision tree
     :param test_set: numpy.ndarray: The test samples
     :param test_labels: numpy.ndarray: The labels of the test data
-    :return: None
+    :return: All the predicted values and the accuracy for reporting
     """
     correct = wrong = 0
     all_predictions = []
