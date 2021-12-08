@@ -14,8 +14,8 @@ def extract_features(file_name,file_type):
     data_file = pd.read_csv(file_name)
     data_file['StartTime'] = pd.to_numeric(pd.to_datetime(data_file['StartTime']),errors='raise')
     start = data_file['StartTime'][0]
-    #Need to calculate a time window and assign it as a new 'feature' to each sample
-
+    data_file['Window_lower'] = (data_file['StartTime']-start-120) #Divide by an additional aggregation window???
+    data_file['Window_upper'] = (data_file['StartTime']-start)
 
 
     #line_index = 0
