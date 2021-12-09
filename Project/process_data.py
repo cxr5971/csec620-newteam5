@@ -83,7 +83,7 @@ def extract_features(file_name, file_type):
 
     time_windows.fillna(-1, inplace=True)
 
-    data_to_normalize = data_columns[:]
+    data_to_normalize = list(time_windows.columns.values)
     data_to_normalize.remove('ScrAddr')
     data_to_normalize.remove('Label_<lambda>')
     data_to_normalize.remove('window_id')
