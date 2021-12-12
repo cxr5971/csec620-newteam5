@@ -51,6 +51,8 @@ def extract_features(file_name, file_type):
     base_name = get_filename(file_name)
     data_file = pd.read_csv(file_name)
 
+    # statistical_playground(data_file)
+
     # Step 2: Adjust the time field into something more usable
     data_file['StartTime'] = pd.to_numeric(pd.to_datetime(data_file['StartTime']), errors='raise')
 
@@ -87,6 +89,7 @@ def extract_features(file_name, file_type):
                 name='counts').join(gb.agg({'Sport': ['nunique', RU], 'DstAddr': ['nunique', RU],
                                             'Dport': ['nunique', RU], 'Dur': ['sum', 'mean', 'std', 'max', 'median'],
                                             'TotBytes': ['sum', 'mean', 'std', 'max', 'median'],
+                                            'SrcBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                             'Label': lambda x: stats.mode(x)[0]}
                                            )).reset_index().assign(window_id=window_count))
 
@@ -105,6 +108,7 @@ def extract_features(file_name, file_type):
         name='counts').join(gb.agg({'Sport': ['nunique', RU], 'DstAddr': ['nunique', RU], 'Dport': ['nunique', RU],
                                     'Dur': ['sum', 'mean', 'std', 'max', 'median'],
                                     'TotBytes': ['sum', 'mean', 'std', 'max', 'median'],
+                                    'SrcBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                     'Label': lambda x: stats.mode(x)[0]}
                                    )).reset_index().assign(window_id=window_count))
     print("Aggregation complete\nCleaning up column names")
@@ -136,11 +140,18 @@ def extract_features(file_name, file_type):
     time_windows.drop('SrcAddr', axis=1).to_hdf(f"{base_name}.h5", key="data", mode="w")
     np.save(f"{base_name}_id.npy", time_windows['SrcAddr'])
     np.save(f"{base_name}_labels.npy", labels)
-     
+
+
+def statistical_playground(dataframe):
+    print(dataframe.columns)
+    for col in dataframe.columns:
+        item_counts = dataframe[col].value_counts(dropna=False)
+        item_counts.to_csv(f"{col}.csv")
+
 
 def main():
     
-    extract_features('./datasets/CTU-Malware-Capture-Botnet-1/2013-10-01_capture-win8.netflow.csv',None)
+    extract_features('./datasets/capture20110810.binetflow', None)
 
 
 if __name__ == '__main__':
