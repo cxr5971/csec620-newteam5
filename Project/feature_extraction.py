@@ -85,7 +85,7 @@ def tune_forrest(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, s
             print(f"Random Forest Classifier: iteration {i}")
             clf = RandomForestClassifier(n_estimators=i)
             clf.fit(x_train, y_train)
-            y_pred=clf.predict(x_test)
+            y_pred = clf.predict(x_test)
 
             data = str(metrics.accuracy_score(y_test, y_pred)) + ','
             data += str(metrics.precision_score(y_test, y_pred)) + ','
@@ -162,7 +162,7 @@ def calculate_feature_importance(clf, x_test, y_test, repeats=10, seed=123456, j
     plt.show()
 
 
-def tune_SVM(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step):
+def tune_svm(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step):
     with open(f'svm_1_{sampling_ratio}_n_iterations_{mini}_{maxi}', 'w+') as f_name:
         f_name.write('\n')
         f_name.write('Accuracy,Precision,Recall,F1-Score,AUC,True_Negative,False_Positive,'
