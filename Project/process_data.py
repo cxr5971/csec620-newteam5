@@ -87,6 +87,7 @@ def extract_features(file_name, file_type):
                 name='counts').join(gb.agg({'Sport': ['nunique', RU], 'DstAddr': ['nunique', RU],
                                             'Dport': ['nunique', RU], 'Dur': ['sum', 'mean', 'std', 'max', 'median'],
                                             'TotBytes': ['sum', 'mean', 'std', 'max', 'median'],
+                                            'SrcBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                             'Label': lambda x: stats.mode(x)[0]}
                                            )).reset_index().assign(window_id=window_count))
 
@@ -105,6 +106,7 @@ def extract_features(file_name, file_type):
         name='counts').join(gb.agg({'Sport': ['nunique', RU], 'DstAddr': ['nunique', RU], 'Dport': ['nunique', RU],
                                     'Dur': ['sum', 'mean', 'std', 'max', 'median'],
                                     'TotBytes': ['sum', 'mean', 'std', 'max', 'median'],
+                                    'SrcBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                     'Label': lambda x: stats.mode(x)[0]}
                                    )).reset_index().assign(window_id=window_count))
     print("Aggregation complete\nCleaning up column names")
@@ -134,13 +136,13 @@ def extract_features(file_name, file_type):
     # Step 8: Save data to files
     print("Saving data to disk")
     time_windows.drop('SrcAddr', axis=1).to_hdf(f"{base_name}.h5", key="data", mode="w")
-    np.save(f"{base_name}_id.npy", time_windows['SrcAddr'])
-    np.save(f"{base_name}_labels.npy", labels)
+    np.save(f"{base_name}_id_12_mess.npy", time_windows['SrcAddr'])
+    np.save(f"{base_name}_labels_12_mess.npy", labels)
      
 
 def main():
     
-    extract_features('./datasets/CTU-Malware-Capture-Botnet-1/2013-10-01_capture-win8.netflow.csv',None)
+    extract_features('./datasets/CTU-Malware-Capture-Botnet-1/capture20110810.binetflow',None)
 
 
 if __name__ == '__main__':
