@@ -76,8 +76,20 @@ def report_metrics(y_test, y_pred):
     print("\tTrue Positive: " + str(tp) + "\n")
 
 
-def tune_forrest(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step):
-    with open(f'rf_1_{sampling_ratio}_n_iterations_{mini}_{maxi}', 'w+') as f_name:
+def tune_forrest(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step, filename):
+    """
+    Creates and runs through multiple iterations of the random forest model. Saves all output to a file.
+    :param x_train: The training data
+    :param y_train: The training labels
+    :param x_test: The test data
+    :param y_test: The test labels
+    :param mini: Minimum of loop iterator, configure this for what parameter you want to test
+    :param maxi: Maximum of loop iterator, configure for what parameter you want to test
+    :param: step: Step value for testing loop
+    :param: filename: The output file to save results
+    :return: None
+    """
+    with open(filename, 'w+') as f_name:
         f_name.write('Accuracy,Precision,Recall,F1-Score,AUC,True_Negative,False_Positive,'
                      'False_Negative,True_Positive\n')
         for i in range(mini, maxi, step):
@@ -162,8 +174,20 @@ def calculate_feature_importance(clf, x_test, y_test, repeats=10, seed=123456, j
     plt.show()
 
 
-def tune_svm(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step):
-    with open(f'svm_1_{sampling_ratio}_n_iterations_{mini}_{maxi}', 'w+') as f_name:
+def tune_svm(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step, filename):
+    """
+    Creates and runs through multiple iterations of the svm model. Saves all output to a file.
+    :param x_train: The training data
+    :param y_train: The training labels
+    :param x_test: The test data
+    :param y_test: The test labels
+    :param mini: Minimum of loop iterator, configure this for what parameter you want to test
+    :param maxi: Maximum of loop iterator, configure for what parameter you want to test
+    :param: step: Step value for testing loop
+    :param: filename: The output file to save results
+    :return: None
+    """
+    with open(filename, 'w+') as f_name:
         f_name.write('\n')
         f_name.write('Accuracy,Precision,Recall,F1-Score,AUC,True_Negative,False_Positive,'
                      'False_Negative,True_Positive\n')
@@ -188,8 +212,20 @@ def tune_svm(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step)
             f_name.write(data+'\n')
 
 
-def tune_log_reg(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step):
-    with open(f'logr_1_{sampling_ratio}_c_{mini}_{maxi}', 'w+') as f_name:
+def tune_log_reg(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step, filename):
+    """
+    Creates and runs through multiple iterations of the logistic regression model. Saves all output to a file.
+    :param x_train: The training data
+    :param y_train: The training labels
+    :param x_test: The test data
+    :param y_test: The test labels
+    :param mini: Minimum of loop iterator, configure this for what parameter you want to test
+    :param maxi: Maximum of loop iterator, configure for what parameter you want to test
+    :param: step: Step value for testing loop
+    :param: filename: The output file to save results
+    :return: None
+    """
+    with open(filename, 'w+') as f_name:
         f_name.write('\n')
         f_name.write('Accuracy,Precision,Recall,F1-Score,AUC,True_Negative,False_Positive,'
                      'False_Negative,True_Positive\n')
@@ -214,8 +250,20 @@ def tune_log_reg(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, s
             f_name.write(data+'\n')
 
 
-def tune_neural(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step):
-    with open(f'svm_1_{sampling_ratio}_n_iterations_{mini}_{maxi}', 'w+') as f_name:
+def tune_neural(x_train, y_train, x_test, y_test, sampling_ratio, mini, maxi, step, filename):
+    """
+    Creates and runs through multiple iterations of the neural network model. Saves all output to a file.
+    :param x_train: The training data
+    :param y_train: The training labels
+    :param x_test: The test data
+    :param y_test: The test labels
+    :param mini: Minimum of loop iterator, configure this for what parameter you want to test
+    :param maxi: Maximum of loop iterator, configure for what parameter you want to test
+    :param: step: Step value for testing loop
+    :param: filename: The output file to save results
+    :return: None
+    """
+    with open(filename, 'w+') as f_name:
         f_name.write('\n')
         f_name.write('Accuracy,Precision,Recall,F1-Score,AUC,True_Negative,False_Positive,'
                      'False_Negative,True_Positive\n')
