@@ -26,11 +26,11 @@ def normalize(data_frame, column):
     return data_frame
 
 
-def RU(dataframe):
+def entropy(dataframe):
     """
-
-    :param dataframe:
-    :return:
+    Calculates the weighted subgroup entropy of a colum
+    :param dataframe: pandas.DataFrame: All the data
+    :return: The entropy
     """
     if dataframe.shape[0] == 1:
         return 1.0
@@ -43,7 +43,7 @@ def RU(dataframe):
 def extract_features(file_name, file_type):
     # The following features are given by the dataset
     # Duration, Protocol, SrcAddress, SrcPort, Direction, DestAddress, DestPort, State, srcTypeOfService (sTos),
-    # destTypeOfService (dTos), TotalPackets, TotalBytes
+    # destTypeOfService (dTos), TotalPackets, TotalBytes, and SrcBytes
     # We want to parse the data and split into time segments
 
     # Step 1: Load the data
@@ -54,7 +54,7 @@ def extract_features(file_name, file_type):
     # Step 2: Adjust the time field into something more usable
     data_file['StartTime'] = pd.to_numeric(pd.to_datetime(data_file['StartTime']), errors='raise')
 
-    # Step 3: Convert the labels into something simpler to use
+    # Step 3: Shorten labels for ease of use
     data_file['Label'], labels = pd.factorize(data_file['Label'].str.slice(0, 15))
 
     # Step 4: Aggregate the data packets into time windows
@@ -84,8 +84,8 @@ def extract_features(file_name, file_type):
             time_window = time_window.append(current_samples[:i + 1])  # Add them
             gb = time_window.groupby('SrcAddr')  # Aggregate the data
             time_windows = time_windows.append(gb.size().to_frame(
-                name='counts').join(gb.agg({'Sport': ['nunique', RU], 'DstAddr': ['nunique', RU],
-                                            'Dport': ['nunique', RU], 'Dur': ['sum', 'mean', 'std', 'max', 'median'],
+                name='counts').join(gb.agg({'Sport': ['nunique', entropy], 'DstAddr': ['nunique', entropy],
+                                            'Dport': ['nunique', entropy], 'Dur': ['sum', 'mean', 'std', 'max', 'median'],
                                             'TotBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                             'SrcBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                             'Label': lambda x: stats.mode(x)[0]}
@@ -100,11 +100,11 @@ def extract_features(file_name, file_type):
             else:
                 time = None
 
-    # Aggregate and process the data on more time to save the final window
+    # Aggregate and process the data one more time to save the final window
     gb = time_window.groupby('SrcAddr')
     time_windows = time_windows.append(gb.size().to_frame(
-        name='counts').join(gb.agg({'Sport': ['nunique', RU], 'DstAddr': ['nunique', RU], 'Dport': ['nunique', RU],
-                                    'Dur': ['sum', 'mean', 'std', 'max', 'median'],
+        name='counts').join(gb.agg({'Sport': ['nunique', entropy], 'DstAddr': ['nunique', entropy],
+                                    'Dport': ['nunique', entropy], 'Dur': ['sum', 'mean', 'std', 'max', 'median'],
                                     'TotBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                     'SrcBytes': ['sum', 'mean', 'std', 'max', 'median'],
                                     'Label': lambda x: stats.mode(x)[0]}
@@ -136,13 +136,13 @@ def extract_features(file_name, file_type):
     # Step 8: Save data to files
     print("Saving data to disk")
     time_windows.drop('SrcAddr', axis=1).to_hdf(f"{base_name}.h5", key="data", mode="w")
-    np.save(f"{base_name}_id_12_mess.npy", time_windows['SrcAddr'])
-    np.save(f"{base_name}_labels_12_mess.npy", labels)
-     
+    np.save(f"{base_name}_id.npy", time_windows['SrcAddr'])
+    np.save(f"{base_name}_labels.npy", labels)
+
 
 def main():
     
-    extract_features('./datasets/CTU-Malware-Capture-Botnet-1/capture20110810.binetflow',None)
+    extract_features('./datasets/capture20110810.binetflow', None)
 
 
 if __name__ == '__main__':
