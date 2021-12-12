@@ -78,7 +78,7 @@ print("True Positive: " + str(tp))
 print("\n\n")
 print("SVM Accuracy")
 #Create SVM Classifier
-clf = svm.SVC(kernel='linear') # Linear Kernel
+clf = svm.SVC(max_iter=1000,kernel='rbf') # Linear Kernel
 #Train the model using the training sets
 clf.fit(X_train, y_train)
 #clf.fit(X1,y_1)
@@ -98,7 +98,7 @@ print("True Positive: " + str(tp))
 
 
 print("Logistic Regression")
-clf = LogisticRegression(random_state=0).fit(X_train, y_train)
+clf = linear_model.LogisticRegression(random_state=0).fit(X_train, y_train)
 clf.predict(X_test)
 print("Accuracy:",metrics.accuracy_score(y_test, y_pred))
 print("Precision:",metrics.precision_score(y_test, y_pred))
